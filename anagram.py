@@ -61,15 +61,18 @@ def anagramSolution2(s1,s2):
 
 
 ##Count and Compare
+#This solution runs in linear time
 def anagramSolution4(s1,s2):
   #create two data structures that represent the 
   #number of times a particular index-value is observed
-  c1 = [0]*26
+  c1 = [0]*26 #create an array with length 26, all values = 0
   c2 = [0]*26
 
   for i in range(len(s1)):
-    pos = ord(s1[i]) - ord('a')
-    c1[pos] += 1
+    pos = ord(s1[i]) - ord('a') #this is a built in Python function that we can perform a standard check
+    #ord('p') - ord('a') = 15
+    c1[pos] += 1 #this increments the value in that index position within the array
+
 
   for i in range(len(s2)):
     pos = ord(s2[i]) - ord('a')
@@ -80,6 +83,7 @@ def anagramSolution4(s1,s2):
   j = 0
   stillOk = True
 
+  #we could have chose length of c1 or c2 
   while j < 26 and stillOk:
     if c1[j] == c2[j]:
       j += 1
